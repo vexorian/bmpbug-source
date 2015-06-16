@@ -18,23 +18,23 @@ REPLY_FOLLOW_BACK = true
 # If true the bot will only reply or RT accounts that are identified as bots. 
 ONLY_REPLY_RT_BOTS = true
 
-DELAY             = 2..70   # Delay between seeing a tweet and interacting (RT / reply)
+DELAY             = 5..30   # Delay between seeing a tweet and interacting (RT / reply)
 FAV_DELAY         = 30..100 # Same but for favoriting the tweet
 TWEET_CHAIN_DELAY = 10..40  # Delay for tweets in a single chain (if content provides)
 
 # probability to make a random tweet at a given minute:
-TWEET_RATE       = 1 / 60.0
+TWEET_RATE       = 1.0 / 60.0
 # maximum number of minutes between tweets
-MAX_TWEET_PERIOD = 60
+MAX_TWEET_PERIOD = 30
 # minimum number of minutes between tweets (ignoring scheduled and manual ones)
-MIN_TWEET_PERIOD = 15
+MIN_TWEET_PERIOD = 10
 
 # Schedule some special messages, to be used by content at given times.
 SPECIAL_MESSAGES_SCHEDULE = [
-    [5, 58..59, :good_night],    #Post a good night message sometime between 5:58 and 5:59 GMT
-    [12, 0.. 3, :good_morning],  #Good morning between 12:00 or 12:03 GMT
+    [ 5, 55..59, :good_night],    #A good night message between 5:55 and 5:59 GMT
+    [12,  0.. 3, :good_morning],  #A good morning message between 12:00 and 12:03 GMT
     # [H, m, :some_name_to_be_sent_to_content ],
-    # Times are in GMT, 24 horus format    
+    # Times are in GMT, 24 horus format
 ]
 
 # A function to decide when to go to sleep (only used 
@@ -63,26 +63,26 @@ MAX_RESET_PERIOD = 24 * 60
 REPLY_MODE = :reply_to_all
 
 # these probabilities are ignored (1.0) if :disable_replies
-CHANCE_TO_IGNORE_MENTION = 0.05
-CHANCE_TO_IGNORE_BOT_MENTION = 0.4
+CHANCE_TO_IGNORE_MENTION = 0.0
+CHANCE_TO_IGNORE_BOT_MENTION = 0.0
 
 # Special, Interesting and Cool words are provided by the content class
 
 # Number of special words needed in tweet to consider it "Special"
-SPECIAL_NEEDED = 2
+SPECIAL_NEEDED = 1
 # Chance to favorite a special tweet.
-SPECIAL_FAVE_RATE = 0.25
+SPECIAL_FAVE_RATE = 0.0
 
 # Same for all of this:
 INTERESTING_NEEDED = 1
-INTERESTING_FAVORITE_RATE = 0.1
+INTERESTING_FAVORITE_RATE = 0.0
 INTERESTING_RT_RATE = 0
-INTERESTING_REPLY_RATE = 1.0 / 60.0
+INTERESTING_REPLY_RATE = 0.0
 
-COOL_NEEDED = 3
-COOL_FAVORITE_RATE = 0.5
-COOL_RT_RATE = 0.1
-COOL_REPLY_RATE = 1.0 / 30.0
+COOL_NEEDED = 1
+COOL_FAVORITE_RATE = 0.0
+COOL_RT_RATE = 0.0
+COOL_REPLY_RATE = 0.0
 
 # Twitter's api doesn't consider blocks, so if an annoying person or stalker
 # is playing with your bot you need a way to make the bot ignore them completely
@@ -102,6 +102,15 @@ BOT_LIST = [
     "badideabot",
     "gamergatefacts",
     "wikisext",
+    "pixelsorter",
+    "badpng",
+    "jpgglitchbot",
+    "a_quil_bot",
+    "imageshredder",
+    "clipartbot",
+    "lowpolybot",
+    "commonsbot",
+    "TheTheresaBot",
     "lexicalorderbot",
     "but_if_you_can",
 ]
