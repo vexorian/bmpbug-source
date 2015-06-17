@@ -369,6 +369,29 @@ class Content
         return nil
     end
     
+    def get_source(friend)
+        r = friend
+        while r == friend do
+            r = IMAGE_PROVIDERS.sample
+        end
+        return r
+    end
+    
+    def make_picture(friend)
+        available = []
+        for s in IMAGE_PROVIDERS
+            if (s != friend) && (@from_source_bots[s].size > 0)
+                available << s
+            end
+        end
+        if (available.size == 0)
+            return nil
+        else
+            from = available.sample
+            return @from_source_bots[from].shuffle.pop , from
+        end        
+    end
+    
     def get_friend
         if @shuffled_bot_friends.size == 0
             @shuffled_bot_friends = BOT_FRIENDS.shuffle
